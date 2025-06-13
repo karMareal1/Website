@@ -1,3 +1,4 @@
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -6,37 +7,85 @@ body {
     padding: 40px;
 }
 
+/* Profile Image */
 .profile-img {
-    width: 300px;  /* made bigger */
-    height: 300px; /* made bigger */
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin-bottom: 30px;
 }
 
+/* Headings */
 h1 {
     color: #2c3e50;
-    font-size: 3em; /* bigger text */
+    font-size: 3em;
 }
 
+h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+/* Paragraphs */
 p {
-    font-size: 1.5em; /* bigger paragraph text */
+    font-size: 1.5em;
     line-height: 1.8;
     margin-bottom: 25px;
 }
 
+/* Buttons */
 button {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 15px 30px; /* bigger button */
-    font-size: 1.2em; /* bigger text on button */
+    padding: 15px 30px;
+    font-size: 1.2em;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 10px;
 }
 
 button:hover {
     background-color: #2980b9;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #2c3e50;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Project List */
+ul {
+    list-style-type: square;
+    font-size: 1.2em;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
 }

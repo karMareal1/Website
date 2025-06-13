@@ -10,6 +10,14 @@
 </head>
 <body>
 
+    <!-- Navigation bar -->
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Profile Image + Intro -->
     <img src="kareem.JPG" alt="Kareem Taher" class="profile-img" />
 
     <h1>Hello, I'm Kareem Taher!</h1>
@@ -22,9 +30,43 @@
 
     <button onclick="sayHello()">Click to say Hello!</button>
 
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I love building things with code and learning new technologies. I'm passionate about Computer Engineering and exploring AI, web development, and game programming.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>Personal Website (this site!)</li>
+            <li>Game Engine in C++</li>
+            <li>Mobile App with Flutter</li>
+            <li>Word Puzzle Solver in Python</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:kareem@example.com">kareem@example.com</a></p>
+    </section>
+
+    <!-- Counter Example -->
+    <p>Visitors count: <span id="counter">0</span></p>
+    <button onclick="incrementCounter()">Click me!</button>
+
+    <!-- JavaScript functions -->
     <script>
         function sayHello() {
             alert('Hello from Kareem!');
+        }
+
+        let count = 0;
+        function incrementCounter() {
+            count += 1;
+            document.getElementById('counter').innerText = count;
         }
     </script>
 
