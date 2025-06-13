@@ -1,91 +1,124 @@
-/* Body Styling */
+/* ----------  GLOBAL  ---------- */
+* { box-sizing: border-box; }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #0a0a0a;          /* dark canvas between pages      */
+    color: #fff;
     text-align: center;
-    padding: 40px;
+    margin: 0;
 }
 
-/* Profile Image */
-.profile-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    margin-bottom: 30px;
-}
-
-/* Headings */
-h1 {
-    color: #2c3e50;
-    font-size: 3em;
-}
-
-h2 {
-    color: #2c3e50;
-    font-size: 2em;
-    margin-top: 40px;
-}
-
-/* Paragraphs */
-p {
-    font-size: 1.5em;
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-/* Buttons */
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 10px;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-/* Navigation Bar */
+/* ----------  NAVBAR  ---------- */
 nav {
-    background-color: #2c3e50;
-    padding: 15px;
-    margin-bottom: 40px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    margin: 0 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: opacity .25s;
 }
 
-nav a:hover {
-    text-decoration: underline;
+nav a:hover { opacity: .7; }
+/* ---------- HERO : full-screen bg + dark RIGHT overlay ---------- */
+.hero {
+    position: relative;
+    height: 100vh;                                 /* fills viewport   */
+    background: url('kareem.JPG') center/cover no-repeat;
+    display: flex;
+    justify-content: flex-end;                     /* push content right*/
+    align-items: center;                           /* vertical center   */
+    background-position: center center;
 }
 
-/* Section Styling */
-section {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* Dark gradient now starts transparent on left ▸ solid on right */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        270deg,                                    /* ← direction */
+        rgba(0,0,0,.85) 0%,                        /* darkest at right edge */
+        rgba(0,0,0,.65) 30%,
+        rgba(0,0,0,0)   70%                       /* fully transparent by 70% */
+    );
 }
 
-/* Project List */
-ul {
-    list-style-type: square;
-    font-size: 1.2em;
+/* Text box lives inside that right-hand dark strip */
+.hero-content {
+    position: relative;
+    z-index: 1;            /* above overlay */
+    margin-right: 6%;      /* some breathing room from edge */
+    max-width: 420px;
+    color: #fff;
+    text-align: right;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;     /* larger heading */
+    line-height: 1.15;
+    margin: 0 0 22px;
+}
+
+.hero-content p {
+    font-size: 1.35rem;    /* slightly bigger paragraph */
+    line-height: 1.6;
+    margin: 0;
+    max-width: 32ch;
+}
+
+
+/* ----------  SECTIONS (about / projects / contact) ---------- */
+.page-section {
+    background: rgba(255,255,255,.95);
+    color: #333;
+    margin: 60px auto;
+    max-width: 900px;
+    padding: 48px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.25);
     text-align: left;
-    margin: 0 auto;
-    max-width: 600px;
+}
+
+.page-section h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.page-section ul {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.page-section li { margin-bottom: 6px; }
+
+/* ----------  BUTTONS ---------- */
+button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .25s;
+}
+button:hover { background: #2980b9; }
+
+/* ----------  FOOTER ---------- */
+footer {
+    background: rgba(0,0,0,.85);
+    color: #fff;
+    padding: 18px 0;
+    font-size: .9rem;
+    margin-top: 80px;
 }
