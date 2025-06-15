@@ -1,17 +1,21 @@
-/* parallax.js – super-simple parallax that ALWAYS runs */
-
+/* parallax.js – move hero background relative to scroll (real parallax) */
 document.addEventListener('DOMContentLoaded', () => {
   const hero  = document.querySelector('.hero');
-  if (!hero) return;                     // quit if page has no hero
+  if (!hero) return;                         // quit on pages without hero
 
-  const SPEED = 0.25;                    // 0.1 subtle  |  0.3 bold
+  const SPEED = 0.8;                         // 0.2 subtle | 0.5 medium | 0.8 strong
 
-  // move background each animation frame
-  const onScroll = () => {
-    const shift = -window.scrollY * SPEED;            // negative = move up
-    hero.style.backgroundPosition = `center calc(50% + ${shift}px)`;
-  };
+  function updateParallax() {
+    /* how far the hero’s *top edge* is from the viewport top */
+    const rect   = hero.getBoundingClientRect();
+    /* Positive when hero is below top, negative after scrolling past it */
+    const offset = rect.top;
 
-  onScroll();                                          // initial position
-  window.addEventListener('scroll', onScroll, { passive: true });
+    /* shift background upward: smaller SPEED = slower motion */
+    hero.style.backgroundPosition = `center ${offset * SPEED}px`;
+  }
+
+  /* run once now, then on every scroll */
+  updateParallax();
+  window.addEventListener('scroll', updateParallax, { passive: true });
 });
