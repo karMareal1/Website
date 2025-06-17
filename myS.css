@@ -32,13 +32,20 @@ nav a:hover { opacity: .7; }
 /* ---------- HERO : full-screen bg + dark RIGHT overlay ---------- */
 .hero {
     position: relative;
-    height: 100vh;                                 /* fills viewport   */
-    background: url('images/kareem.JPG') center/cover no-repeat;
+    height: 100vh;
     display: flex;
-    justify-content: flex-end;                     /* push content right*/
-    align-items: center;                           /* vertical center   */
-    background-position: center center;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url('images/kareem.JPG');
+    background-size: cover;
+    background-position: center 10%; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Important if using parallax effects */
+    transition: background-position 0.3s ease;
+    overflow: hidden;
 }
+
+
 
 /* Dark gradient now starts transparent on left ▸ solid on right */
 .hero::before {
@@ -46,18 +53,19 @@ nav a:hover { opacity: .7; }
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        270deg,                                    /* ← direction */
-        rgba(0,0,0,.85) 0%,                        /* darkest at right edge */
+        270deg,
+        rgba(0,0,0,.85) 0%,
         rgba(0,0,0,.65) 30%,
-        rgba(0,0,0,0)   70%                       /* fully transparent by 70% */
+        rgba(0,0,0,0)   70%
     );
+    z-index: 1;
 }
 
 /* Text box lives inside that right-hand dark strip */
 .hero-content {
     position: relative;
-    z-index: 1;            /* above overlay */
-    margin-right: 6%;      /* some breathing room from edge */
+    z-index: 2;
+    margin-right: 6%;
     max-width: 420px;
     color: #fff;
     text-align: right;
